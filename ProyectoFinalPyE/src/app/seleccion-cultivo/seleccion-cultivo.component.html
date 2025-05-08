@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <button class="boton" (click)="toggleMenu()">
+    {{ cultivoSeleccionado }}
+  </button>
+  
+  <ul class="menu" *ngIf="menuAbierto">
+    <li *ngFor="let cultivo of cultivos" (click)="seleccionarCultivo(cultivo)">
+      {{ cultivo }}
+    </li>
+  </ul>
+</div>
