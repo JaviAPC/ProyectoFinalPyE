@@ -1,14 +1,15 @@
+// auth.guard.ts
 import { inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { CanActivateFn } from '@angular/router';
+import { Router, CanActivateFn } from '@angular/router';
+import { AuthService } from './auth.service';
 
 export const authGuard: CanActivateFn = () => {
+  const authService = inject(AuthService);
   const router = inject(Router);
-  const isAuthenticated = false; // Aquí deberías verificar el estado de autenticación real
 
-  if (!isAuthenticated) {
-    router.navigate(['/']);
-    return false;
+  if (authService.isAuthenticated()) {
+    return true;
+  } else {
+    return router.createUrlTree(['/']);
   }
-  return true;
 };

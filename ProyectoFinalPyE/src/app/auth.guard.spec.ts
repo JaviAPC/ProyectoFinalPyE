@@ -16,7 +16,7 @@ describe('MiComponente', () => {
   it('debería navegar a la ruta correcta', () => {
     spyOn(router, 'navigate');
 
-    // Navegar a la ruta '/home'
+    
     router.navigate(['/home']);
 
     expect(router.navigate).toHaveBeenCalledWith(['/home']);
