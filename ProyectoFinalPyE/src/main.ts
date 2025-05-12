@@ -1,6 +1,18 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { LoginComponent } from './app/login/login.component';
+import { SeleccionCultivoComponent } from './app/seleccion-cultivo/seleccion-cultivo.component';
+import { authGuard } from './app/auth.guard';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+const routes = [
+  { path: '', component: LoginComponent },
+  {
+    path: 'seleccion-cultivo',
+    component: SeleccionCultivoComponent,
+    canActivate: [authGuard],
+  },
+];
+
+bootstrapApplication(LoginComponent, {
+  providers: [provideRouter(routes)],
+});
