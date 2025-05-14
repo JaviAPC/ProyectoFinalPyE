@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SeleccionCultivoComponent } from "./seleccion-cultivo/seleccion-cultivo.component";  // Asegúrate de importar CommonModule
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,  // Si es un componente standalone
-  imports: [CommonModule, SeleccionCultivoComponent],  // Asegúrate de agregar CommonModule en imports
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    standalone: true,
+    imports: [RouterOutlet],
+    template: `
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    `,
+    styles: [`
+        main {
+            min-height: 100vh;
+            background-color: #f5f7fa;
+        }
+    `]
 })
-export class AppComponent {}
+export class AppComponent {
+    title = 'Sistema de Monitoreo y Predicción de Cosechas';
+}
