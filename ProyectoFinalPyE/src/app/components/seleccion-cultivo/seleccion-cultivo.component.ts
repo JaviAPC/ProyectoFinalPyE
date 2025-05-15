@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CultivoService } from '../../services/cultivo.service';
 import { Cultivo } from '../../models/cultivo.model';
-import { ListaCultivosAgregados, NodoCultivoAgregado } from '../../models/cultivo-agregado.model';
+import { ListaCultivosSeleccionados, CultivoSeleccionado, Tarea } from '../../models/cultivo-seleccionado.model';
 
 @Component({
     selector: 'app-seleccion-cultivo',
@@ -12,477 +12,371 @@ import { ListaCultivosAgregados, NodoCultivoAgregado } from '../../models/cultiv
     imports: [CommonModule, RouterModule, FormsModule],
     template: `
         <div class="cultivos-container">
-            <h2>Selecciona tu Cultivo</h2>
-            @if (!cultivoSeleccionado) {
-                <div class="cultivos-grid">
-                    @for (cultivo of cultivos; track cultivo.id) {
-                        <div class="cultivo-card" (click)="seleccionarCultivo(cultivo)">
-                            <img [src]="cultivo.imagen" 
-                                 [alt]="cultivo.nombre"
-                                 (error)="handleImageError($event)"
-                                 [class.image-error]="imagenesConError[cultivo.id]">
-                            @if (imagenesConError[cultivo.id]) {
-                                <div class="image-error-placeholder">
-                                    <span>{{ cultivo.nombre }}</span>
-                                </div>
-                            }
-                            <h3>{{ cultivo.nombre }}</h3>
-                        </div>
-                    }
-                </div>
-            } @else {
-                <div class="cultivo-detalle">
-                    <button class="volver-btn" (click)="volverALista()">Volver a la lista</button>
-                    <div class="cultivo-card expandido">
-                        <div class="cultivo-info-container">
-                            <div class="cultivo-imagen">
-                                <img [src]="cultivoSeleccionado.imagen" 
-                                     [alt]="cultivoSeleccionado.nombre"
-                                     (error)="handleImageError($event)"
-                                     [class.image-error]="imagenesConError[cultivoSeleccionado.id]">
-                                @if (imagenesConError[cultivoSeleccionado.id]) {
-                                    <div class="image-error-placeholder">
-                                        <span>{{ cultivoSeleccionado.nombre }}</span>
-                                    </div>
-                                }
-                            </div>
-                            <div class="cultivo-info">
-                                <h3>{{ cultivoSeleccionado.nombre }}</h3>
-                                <p class="descripcion">{{ cultivoSeleccionado.descripcion }}</p>
-                                <div class="detalles-cultivo">
-                                    <p><strong>Duración de cosecha:</strong> {{ getDuracionCosecha(cultivoSeleccionado.nombre) }}</p>
-                                    <p><strong>Temperatura óptima:</strong> {{ getTemperaturaOptima(cultivoSeleccionado.nombre) }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="agregar-btn" (click)="mostrarFormularioAgregar()">
-                            Añadir cultivo +
-                        </button>
-                        @if (mostrandoFormulario) {
-                            <div class="formulario-agregar">
-                                <h4>Agregar Nueva Siembra</h4>
-                                <div class="form-group">
-                                    <label for="fechaSiembra">Fecha de Siembra:</label>
-                                    <input 
-                                        type="date" 
-                                        id="fechaSiembra" 
-                                        [(ngModel)]="nuevaFechaSiembra"
-                                        [max]="fechaMaxima">
-                                </div>
-                                <div class="form-actions">
-                                    <button class="confirmar-btn" (click)="agregarCultivo()">Confirmar</button>
-                                    <button class="cancelar-btn" (click)="cancelarAgregar()">Cancelar</button>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
+            <!-- Sección de selección de cultivos -->
+            <div class="header">
+                <h1>Selecciona tus Cultivos</h1>
+                <p class="subtitle">Elige los cultivos que deseas gestionar</p>
+            </div>
 
-            @if (cultivosAgregados.obtenerTodos().length > 0) {
-                <div class="cultivos-agregados">
-                    <h3>Mis Cultivos</h3>
-                    <div class="lista-cultivos">
-                        @for (cultivo of cultivosAgregados.obtenerTodos(); track cultivo.id) {
-                            <div class="cultivo-agregado-card">
-                                <img [src]="cultivo.imagen" [alt]="cultivo.nombreCultivo">
-                                <div class="cultivo-agregado-info">
-                                    <h4>{{ cultivo.nombreCultivo }}</h4>
-                                    <p>Fecha de siembra: {{ cultivo.fechaSiembra | date:'dd/MM/yyyy' }}</p>
-                                    <button class="eliminar-btn" (click)="eliminarCultivo(cultivo.id)">
-                                        Eliminar
-                                    </button>
-                                </div>
-                            </div>
-                        }
+            <!-- Grid de cultivos disponibles -->
+            <div class="cultivos-grid">
+                <div *ngFor="let cultivo of cultivos" 
+                     class="cultivo-card" 
+                     (click)="seleccionarCultivo(cultivo)">
+                    <div class="cultivo-image">
+                        <img [src]="cultivo.imagen" [alt]="cultivo.nombre">
+                    </div>
+                    <div class="cultivo-info">
+                        <h3>{{ cultivo.nombre }}</h3>
+                        <p>{{ cultivo.descripcion }}</p>
+                    </div>
+                    <div class="hover-overlay">
+                        <button class="select-button">Seleccionar</button>
                     </div>
                 </div>
-            }
+            </div>
+
+            <!-- Lista de cultivos seleccionados -->
+            <div class="cultivos-seleccionados" *ngIf="cultivosSeleccionados.length > 0">
+                <h2>Tus Cultivos Seleccionados</h2>
+                <div class="cultivo-seleccionado-card" *ngFor="let seleccionado of cultivosSeleccionados">
+                    <div class="cultivo-header">
+                        <h3>{{ seleccionado.cultivo.nombre }}</h3>
+                        <button class="delete-button" (click)="eliminarCultivo(seleccionado.cultivo)">✖</button>
+                    </div>
+                    <div class="cultivo-details">
+                        <p><strong>Temperatura óptima:</strong> {{ seleccionado.cultivo.temperaturaOptima }}</p>
+                        <p><strong>Tiempo de cosecha:</strong> {{ seleccionado.cultivo.tiempoCosecha }}</p>
+                        <p><strong>Fecha de siembra:</strong> {{ seleccionado.fechaSiembra | date:'dd/MM/yyyy' }}</p>
+                    </div>
+                    
+                    <!-- Lista de tareas -->
+                    <div class="tareas-list">
+                        <h4>Próximas tareas</h4>
+                        <div class="tarea-item" *ngFor="let tarea of obtenerProximasTareas(seleccionado)">
+                            <span class="tarea-fecha">{{ tarea.fecha | date:'dd/MM/yyyy' }}</span>
+                            <span class="tarea-tipo">{{ tarea.tipo === 'riego' ? '💧 Riego' : '🌱 Fertilización' }}</span>
+                            <input type="checkbox" 
+                                   [checked]="tarea.completada"
+                                   (change)="onTareaChange($event, seleccionado.cultivo.id, tarea.fecha, tarea.tipo)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de fecha de siembra -->
+        <div class="modal" *ngIf="mostrandoFormulario">
+            <div class="modal-content">
+                <h3>Seleccionar fecha de siembra</h3>
+                <input type="date" 
+                       [(ngModel)]="nuevaFechaSiembra" 
+                       [max]="fechaMaxima">
+                <div class="modal-buttons">
+                    <button (click)="agregarCultivo()">Confirmar</button>
+                    <button (click)="cancelarAgregar()">Cancelar</button>
+                </div>
+            </div>
         </div>
     `,
     styles: [`
         .cultivos-container {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgb(242, 255, 244) 0%, rgb(235, 255, 237) 100%);
+            padding: 40px 20px;
         }
 
-        h2 {
+        .header {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgb(121, 251, 162);
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 16px;
         }
 
         .cultivos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .cultivo-card {
             background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgb(149, 255, 179);
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
-            text-align: center;
+            cursor: pointer;
         }
 
         .cultivo-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(143, 255, 179, 0.2);
         }
 
-        .cultivo-card img {
-            width: 100%;
+        .cultivo-image {
             height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            overflow: hidden;
         }
 
-        .cultivo-card.expandido {
-            cursor: default;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .cultivo-card.expandido img {
+        .cultivo-image img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.3s;
         }
 
-        .cultivo-card.expandido:hover {
-            transform: none;
-        }
-
-        .image-error {
-            display: none;
-        }
-
-        .image-error-placeholder {
-            width: 100%;
-            height: 200px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #dee2e6;
-        }
-
-        .image-error-placeholder span {
-            color: #6c757d;
-            font-size: 1.2rem;
-        }
-
-        .cultivo-card h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .cultivo-card p {
-            color: #7f8c8d;
-            margin: 1rem 0;
-            line-height: 1.6;
-        }
-
-        .volver-btn {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 2rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .volver-btn:hover {
-            background-color: #2980b9;
-        }
-
-        .cultivo-detalle {
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cultivo-info-container {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-        }
-
-        .cultivo-imagen {
-            flex: 0 0 45%;
+        .cultivo-card:hover .cultivo-image img {
+            transform: scale(1.1);
         }
 
         .cultivo-info {
-            flex: 1;
-            text-align: left;
+            padding: 20px;
         }
 
-        .detalles-cultivo {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
+        .cultivo-info h3 {
+            color: #2d3748;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        .detalles-cultivo p {
-            margin: 0.5rem 0;
-            color: #2c3e50;
+        .cultivo-info p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        .descripcion {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+        .hover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(56, 66, 57, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .agregar-btn {
-            margin-top: 2rem;
-            background-color: #2ecc71;
+        .cultivo-card:hover .hover-overlay {
+            opacity: 1;
+        }
+
+        .select-button {
+            background: rgb(52, 156, 49);
             color: white;
             border: none;
-            padding: 1rem 2rem;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .select-button:hover {
+            background: rgb(27, 106, 41);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .cultivos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .header {
+                margin-bottom: 30px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        .cultivos-seleccionados {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(118, 255, 162, 0.1);
+        }
+
+        .cultivo-seleccionado-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .cultivo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .delete-button {
+            background: none;
+            border: none;
+            color: #e53e3e;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        .cultivo-details {
+            margin-bottom: 15px;
+        }
+
+        .tareas-list {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 15px;
+        }
+
+        .tarea-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            gap: 15px;
+        }
+
+        .tarea-fecha {
+            min-width: 100px;
+            color: #4a5568;
+        }
+
+        .tarea-tipo {
+            flex: 1;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            padding: 10px;
+            border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
         }
 
-        .agregar-btn:hover {
-            background-color: #27ae60;
-        }
-
-        .formulario-agregar {
-            margin-top: 2rem;
-            padding: 2rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .confirmar-btn, .cancelar-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .confirmar-btn {
-            background-color: #3498db;
+        .modal-buttons button:first-child {
+            background: rgb(52, 156, 49);
             color: white;
         }
 
-        .confirmar-btn:hover {
-            background-color: #2980b9;
-        }
-
-        .cancelar-btn {
-            background-color: #e74c3c;
-            color: white;
-        }
-
-        .cancelar-btn:hover {
-            background-color: #c0392b;
-        }
-
-        .cultivos-agregados {
-            margin-top: 3rem;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .lista-cultivos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .cultivo-agregado-card {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            align-items: center;
-        }
-
-        .cultivo-agregado-card img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .cultivo-agregado-info {
-            flex: 1;
-        }
-
-        .cultivo-agregado-info h4 {
-            margin: 0 0 0.5rem 0;
-            color: #2c3e50;
-        }
-
-        .cultivo-agregado-info p {
-            margin: 0 0 1rem 0;
-            color: #7f8c8d;
-        }
-
-        .eliminar-btn {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .eliminar-btn:hover {
-            background-color: #c0392b;
+        .modal-buttons button:last-child {
+            background: #e2e8f0;
         }
     `]
 })
 export class SeleccionCultivoComponent implements OnInit {
     cultivos: Cultivo[] = [];
-    imagenesConError: { [key: number]: boolean } = {};
     cultivoSeleccionado: Cultivo | null = null;
-    cultivosAgregados = new ListaCultivosAgregados();
     mostrandoFormulario = false;
     nuevaFechaSiembra: string = '';
     fechaMaxima = new Date().toISOString().split('T')[0];
+    private listaCultivosSeleccionados = new ListaCultivosSeleccionados();
+    cultivosSeleccionados: CultivoSeleccionado[] = [];
 
     constructor(private cultivoService: CultivoService) {}
 
     ngOnInit() {
         this.cultivos = this.cultivoService.getCultivos();
-        console.log('Cultivos cargados:', this.cultivos);
-        
-        this.cultivos.forEach(cultivo => {
-            const img = new Image();
-            img.src = cultivo.imagen;
-            img.onload = () => {
-                console.log(`Imagen cargada exitosamente: ${cultivo.nombre}`);
-            };
-            img.onerror = () => {
-                console.error(`Error al cargar la imagen: ${cultivo.imagen}`);
-                this.imagenesConError[cultivo.id] = true;
-            };
-        });
+        this.actualizarListaCultivosSeleccionados();
     }
 
-    handleImageError(event: ErrorEvent) {
-        const imgElement = event.target as HTMLImageElement;
-        const cultivoId = this.cultivos.find(c => c.imagen === imgElement.src)?.id;
-        
-        if (cultivoId) {
-            console.error(`Error al cargar la imagen del cultivo ID ${cultivoId}:`, event.error);
-            this.imagenesConError[cultivoId] = true;
-        }
+    private actualizarListaCultivosSeleccionados() {
+        this.cultivosSeleccionados = this.listaCultivosSeleccionados.obtenerTodos();
     }
 
     seleccionarCultivo(cultivo: Cultivo) {
         this.cultivoSeleccionado = cultivo;
-    }
-
-    volverALista() {
-        this.cultivoSeleccionado = null;
-    }
-
-    getDuracionCosecha(nombreCultivo: string): string {
-        switch (nombreCultivo.toLowerCase()) {
-            case 'papa':
-                return '135 días aprox.';
-            case 'arveja':
-                return '50 días aprox.';
-            case 'choclo':
-                return '115 días aprox.';
-            default:
-                return 'No disponible';
-        }
-    }
-
-    getTemperaturaOptima(nombreCultivo: string): string {
-        switch (nombreCultivo.toLowerCase()) {
-            case 'papa':
-                return '18 - 20 °C';
-            case 'arveja':
-                return '15 - 20 °C';
-            case 'choclo':
-                return '20 - 30 °C';
-            default:
-                return 'No disponible';
-        }
-    }
-
-    mostrarFormularioAgregar() {
         this.mostrandoFormulario = true;
         this.nuevaFechaSiembra = new Date().toISOString().split('T')[0];
     }
 
-    cancelarAgregar() {
-        this.mostrandoFormulario = false;
-        this.nuevaFechaSiembra = '';
-    }
-
     agregarCultivo() {
         if (this.cultivoSeleccionado && this.nuevaFechaSiembra) {
-            this.cultivosAgregados.agregar(
-                this.cultivoSeleccionado.nombre,
-                new Date(this.nuevaFechaSiembra),
-                this.cultivoSeleccionado.imagen
+            this.listaCultivosSeleccionados.agregar(
+                this.cultivoSeleccionado,
+                new Date(this.nuevaFechaSiembra)
             );
+            this.actualizarListaCultivosSeleccionados();
             this.mostrandoFormulario = false;
+            this.cultivoSeleccionado = null;
             this.nuevaFechaSiembra = '';
         }
     }
 
-    eliminarCultivo(id: number) {
-        this.cultivosAgregados.eliminar(id);
+    eliminarCultivo(cultivo: Cultivo) {
+        this.listaCultivosSeleccionados.eliminar(cultivo);
+        this.actualizarListaCultivosSeleccionados();
+    }
+
+    cancelarAgregar() {
+        this.mostrandoFormulario = false;
+        this.cultivoSeleccionado = null;
+        this.nuevaFechaSiembra = '';
+    }
+
+    obtenerProximasTareas(cultivoSeleccionado: CultivoSeleccionado): Tarea[] {
+        const hoy = new Date();
+        return cultivoSeleccionado.tareas
+            .filter(tarea => tarea.fecha >= hoy)
+            .slice(0, 5); // Mostrar solo las próximas 5 tareas
+    }
+
+    actualizarTarea(cultivoId: number, fecha: Date, tipo: 'riego' | 'fertilizacion', completada: boolean): void {
+        this.listaCultivosSeleccionados.actualizarTarea(cultivoId, fecha, tipo, completada);
+        this.actualizarListaCultivosSeleccionados();
+    }
+
+    onTareaChange(event: Event, cultivoId: number, fecha: Date, tipo: 'riego' | 'fertilizacion'): void {
+        const isChecked = (event.target as HTMLInputElement).checked;
+        this.actualizarTarea(cultivoId, fecha, tipo, isChecked);
     }
 } 

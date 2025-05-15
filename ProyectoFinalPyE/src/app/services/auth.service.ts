@@ -8,6 +8,7 @@ import { Usuario, ListaCircularUsuarios } from '../models/usuario.model';
 export class AuthService {
     private listaUsuarios = new ListaCircularUsuarios();
     private usuarioActual = new BehaviorSubject<Usuario | null>(null);
+    private readonly STORAGE_KEY = 'usuario_actual';
 
     constructor() {
         // Inicializar con un usuario de prueba
@@ -18,12 +19,21 @@ export class AuthService {
             password: '123456',
             tipoAgricultor: 'pequeño'
         });
+
+        // Limpiar el estado de autenticación al iniciar
+        this.limpiarEstadoAutenticacion();
+    }
+
+    private limpiarEstadoAutenticacion(): void {
+        this.usuarioActual.next(null);
+        localStorage.removeItem(this.STORAGE_KEY);
     }
 
     login(email: string, password: string): boolean {
         const usuario = this.listaUsuarios.buscarPorEmail(email);
         if (usuario && usuario.password === password) {
             this.usuarioActual.next(usuario);
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(usuario));
             return true;
         }
         return false;
@@ -40,6 +50,7 @@ export class AuthService {
 
     logout(): void {
         this.usuarioActual.next(null);
+        localStorage.removeItem(this.STORAGE_KEY);
     }
 
     getUsuarioActual(): Observable<Usuario | null> {
