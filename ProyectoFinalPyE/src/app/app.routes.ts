@@ -23,6 +23,11 @@ export const routes: Routes = [
         component: SeleccionCultivoComponent,
         canActivate: [AuthGuard]
     },
+    {
+        path: 'clima',
+        loadComponent: () => import('./components/weather/weather.component').then(m => m.WeatherComponent),
+        title: 'Clima'
+    },
     { 
         path: '', 
         redirectTo: '/login', 

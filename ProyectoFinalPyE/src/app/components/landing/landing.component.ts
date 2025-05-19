@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
           </div>
           <div class="nav-links">
             <a (click)="toggleAboutUs()">Sobre Nosotros</a>
+            <a routerLink="/clima">🌦️ Clima</a>
             <a (click)="toggleContacts()">Contactos</a>
             <button routerLink="/login" class="login-btn">Iniciar Sesión</button>
           </div>
