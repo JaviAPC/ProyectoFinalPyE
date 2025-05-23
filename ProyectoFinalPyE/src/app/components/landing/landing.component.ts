@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterLink],
   template: `
     <div class="landing-container">
-      <!-- Navbar -->
       <nav class="navbar">
         <div class="nav-content">
           <div class="logo-section">
