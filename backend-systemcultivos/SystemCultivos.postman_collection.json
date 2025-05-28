@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "system-cultivos",
+		"name": "System Cultivos API",
+		"description": "Colección de endpoints para el sistema de cultivos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"usuario@ejemplo.com\",\n    \"nombre\": \"Usuario\",\n    \"apellido\": \"Prueba\",\n    \"password\": \"123456\",\n    \"rol\": \"USER\",\n    \"activo\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/usuarios/registro",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "usuarios", "registro"]
+						}
+					}
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"usuario@ejemplo.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/usuarios/login",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "usuarios", "login"]
+						}
+					}
+				},
+				{
+					"name": "Obtener Todos los Usuarios",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8081/api/usuarios",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "usuarios"]
+						}
+					}
+				},
+				{
+					"name": "Obtener Usuario por ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8081/api/usuarios/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "usuarios", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID del usuario"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Eliminar Usuario",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:8081/api/usuarios/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "usuarios", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID del usuario"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Cultivos",
+			"item": [
+				{
+					"name": "Crear Cultivo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Cultivo de Tomates\",\n    \"descripcion\": \"Cultivo orgánico de tomates\",\n    \"tipo\": \"Hortaliza\",\n    \"estado\": \"Activo\",\n    \"fechaInicio\": \"2024-03-20\",\n    \"fechaFin\": \"2024-06-20\",\n    \"ubicacion\": {\n        \"direccion\": \"Finca El Progreso\",\n        \"coordenadas\": \"4.60971,-74.08175\",\n        \"zona\": \"Zona Rural\"\n    },\n    \"area\": 100.5,\n    \"metodoRiego\": \"Goteo\",\n    \"frecuenciaRiego\": \"Diario\",\n    \"tipoSuelo\": \"Franco\",\n    \"usuario\": {\n        \"id\": \"ID_DEL_USUARIO\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/cultivos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "cultivos"]
+						}
+					}
+				},
+				{
+					"name": "Obtener Todos los Cultivos",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8081/api/cultivos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "cultivos"]
+						}
+					}
+				},
+				{
+					"name": "Obtener Cultivo por ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8081/api/cultivos/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "cultivos", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID del cultivo"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Agregar Cosecha",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha\": \"2024-06-15\",\n    \"cantidad\": 500.0,\n    \"calidad\": \"Excelente\",\n    \"notas\": \"Primera cosecha del año\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/cultivos/:id/cosechas",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "cultivos", ":id", "cosechas"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID del cultivo"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Obtener Estadísticas",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8081/api/cultivos/:id/estadisticas",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "cultivos", ":id", "estadisticas"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID del cultivo"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+} 

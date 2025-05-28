@@ -1,0 +1,16 @@
+com\systemcultivos\model\Cultivo$Ubicacion.class
+com\systemcultivos\SystemCultivosApplication.class
+com\systemcultivos\controller\CultivoController$EstadisticasCultivo.class
+com\systemcultivos\controller\TestController.class
+com\systemcultivos\repository\UsuarioRepository.class
+com\systemcultivos\config\MongoConfig.class
+com\systemcultivos\repository\CultivoRepository.class
+com\systemcultivos\service\UsuarioServiceImpl.class
+com\systemcultivos\service\CultivoService.class
+com\systemcultivos\model\Cultivo$Cosecha.class
+com\systemcultivos\model\Cultivo.class
+com\systemcultivos\model\Usuario.class
+com\systemcultivos\controller\CultivoController.class
+com\systemcultivos\service\UsuarioService.class
+com\systemcultivos\controller\UsuarioController.class
+com\systemcultivos\service\CultivoServiceImpl.class
