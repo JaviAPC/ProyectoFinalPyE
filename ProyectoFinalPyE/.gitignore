@@ -1,5 +1,0 @@
-# Ignorar dependencias y cachés temporales de Angular
-node_modules/
-.angular/
-*.tsbuildinfo
-cache/
