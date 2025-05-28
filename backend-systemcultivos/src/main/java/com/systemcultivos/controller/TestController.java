@@ -4,11 +4,16 @@ import com.systemcultivos.model.Usuario;
 import com.systemcultivos.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/test")
+@CrossOrigin(origins = "*")
 public class TestController {
 
     @Autowired
@@ -24,25 +29,42 @@ public class TestController {
             mongoTemplate.getCollectionNames();
             return ResponseEntity.ok("Conexión a MongoDB exitosa");
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error al conectar con MongoDB: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al conectar con MongoDB: " + e.getMessage());
         }
     }
 
-    @PostMapping("/crear-usuario-prueba")
+    @PostMapping("/crear-usuario")
     public ResponseEntity<?> crearUsuarioPrueba() {
         try {
             Usuario usuario = new Usuario();
-            usuario.setEmail("prueba@test.com");
+            usuario.setEmail("test@test.com");
             usuario.setNombre("Usuario");
             usuario.setApellido("Prueba");
             usuario.setPassword("123456");
-            usuario.setRol("ADMIN");
+            usuario.setRol("USER");
             usuario.setActivo(true);
 
             Usuario usuarioCreado = usuarioService.crearUsuario(usuario);
-            return ResponseEntity.ok(usuarioCreado);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("mensaje", "Usuario de prueba creado exitosamente");
+            response.put("usuario", usuarioCreado);
+            
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error al crear usuario de prueba: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al crear usuario de prueba: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/listar-usuarios")
+    public ResponseEntity<?> listarUsuarios() {
+        try {
+            return ResponseEntity.ok(usuarioService.obtenerTodosLosUsuarios());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al listar usuarios: " + e.getMessage());
         }
     }
 } 

@@ -141,6 +141,7 @@ public class CultivoController {
     }
 
     // Clase para estadísticas
+    @SuppressWarnings("unused")
     private static class EstadisticasCultivo {
         private final double totalCosechado;
         private final double promedioCosecha;
@@ -152,7 +153,6 @@ public class CultivoController {
             this.numeroCosechas = numeroCosechas;
         }
 
-        // Getters
         public double getTotalCosechado() { return totalCosechado; }
         public double getPromedioCosecha() { return promedioCosecha; }
         public int getNumeroCosechas() { return numeroCosechas; }

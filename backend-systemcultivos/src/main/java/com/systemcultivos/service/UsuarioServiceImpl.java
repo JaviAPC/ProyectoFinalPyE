@@ -16,6 +16,15 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario crearUsuario(Usuario usuario) {
+        if (usuario == null) {
+            throw new IllegalArgumentException("El usuario no puede ser nulo");
+        }
+        if (usuario.getEmail() == null || usuario.getEmail().trim().isEmpty()) {
+            throw new IllegalArgumentException("El email es requerido");
+        }
+        if (usuarioRepository.existsByEmail(usuario.getEmail())) {
+            throw new RuntimeException("El email ya está registrado");
+        }
         return usuarioRepository.save(usuario);
     }
 
@@ -26,21 +35,44 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Optional<Usuario> obtenerUsuarioPorId(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            return Optional.empty();
+        }
         return usuarioRepository.findById(id);
     }
 
     @Override
     public Optional<Usuario> obtenerUsuarioPorEmail(String email) {
-        return usuarioRepository.findByEmail(email);
+        if (email == null || email.trim().isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(usuarioRepository.findByEmail(email));
     }
 
     @Override
     public boolean existeUsuarioPorEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            return false;
+        }
         return usuarioRepository.existsByEmail(email);
     }
 
     @Override
     public void eliminarUsuario(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            throw new IllegalArgumentException("El ID no puede ser nulo o vacío");
+        }
+        if (!usuarioRepository.existsById(id)) {
+            throw new RuntimeException("El usuario no existe");
+        }
         usuarioRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Usuario> findByEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(usuarioRepository.findByEmail(email));
     }
 }
