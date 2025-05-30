@@ -7,12 +7,18 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    { path: '', component: LandingComponent },
-    { path: 'home', component: HomeComponent },
+    { 
+        path: '', 
+        component: LandingComponent 
+    },
+    { 
+        path: 'home', 
+        component: HomeComponent,
+        canActivate: [AuthGuard]
+    },
     { 
         path: 'login', 
-        component: LoginComponent,
-        canActivate: [AuthGuard]
+        component: LoginComponent 
     },
     { 
         path: 'registro', 
@@ -26,11 +32,12 @@ export const routes: Routes = [
     {
         path: 'clima',
         loadComponent: () => import('./components/weather/weather.component').then(m => m.WeatherComponent),
+        canActivate: [AuthGuard],
         title: 'Clima'
     },
     { 
-        path: '', 
-        redirectTo: '/login', 
+        path: '**', 
+        redirectTo: '', 
         pathMatch: 'full' 
     }
 ];

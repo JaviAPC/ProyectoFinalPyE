@@ -21,6 +21,22 @@ import { AuthService } from '../../services/auth.service';
 
                 <form class="register-form" (ngSubmit)="onSubmit()">
                     <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <div class="input-container">
+                            <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" placeholder="Tu nombre" required>
+                            <span class="input-icon">👤</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <div class="input-container">
+                            <input type="text" id="apellido" [(ngModel)]="apellido" name="apellido" placeholder="Tu apellido" required>
+                            <span class="input-icon">👤</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="email">Correo electrónico</label>
                         <div class="input-container">
                             <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="ejemplo@correo.com" required>
@@ -43,6 +59,10 @@ import { AuthService } from '../../services/auth.service';
                     <p class="login-link">
                         ¿Ya tienes una cuenta? <a routerLink="/login">Iniciar sesión</a>
                     </p>
+
+                    <div *ngIf="errorMessage" class="error-message">
+                        {{ errorMessage }}
+                    </div>
                 </form>
             </div>
         </div>
@@ -163,6 +183,16 @@ import { AuthService } from '../../services/auth.service';
             font-weight: 600;
         }
 
+        .error-message {
+            color: #e53e3e;
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff5f5;
+            border-radius: 5px;
+            border: 1px solid #feb2b2;
+        }
+
         @media (max-width: 480px) {
             .register-card {
                 padding: 20px;
@@ -173,7 +203,10 @@ import { AuthService } from '../../services/auth.service';
 export class RegistroComponent {
     email: string = '';
     password: string = '';
+    nombre: string = '';
+    apellido: string = '';
     showPassword: boolean = false;
+    errorMessage: string = '';
 
     constructor(
         private router: Router,
@@ -185,21 +218,34 @@ export class RegistroComponent {
     }
 
     onSubmit() {
-        if (this.email && this.password) {
+        if (this.email && this.password && this.nombre && this.apellido) {
             const nuevoUsuario = {
-                nombre: this.email.split('@')[0], // Usamos parte del email como nombre temporal
                 email: this.email,
+                nombre: this.nombre,
+                apellido: this.apellido,
                 password: this.password,
-                tipoAgricultor: 'pequeño' as const // Valor por defecto
+                rol: 'USER',
+                activo: true
             };
 
-            if (this.authService.registro(nuevoUsuario)) {
-                console.log('Registro exitoso');
-                this.router.navigate(['/login']);
-            } else {
-                console.log('Error en el registro: el usuario ya existe');
-                // Aquí podrías agregar un mensaje de error para el usuario
-            }
+            this.authService.register(nuevoUsuario).subscribe({
+                next: (response) => {
+                    console.log('Registro exitoso', response);
+                    this.router.navigate(['/login']);
+                },
+                error: (error) => {
+                    console.error('Error en el registro:', error);
+                    if (error.error && error.error.mensaje) {
+                        this.errorMessage = error.error.mensaje;
+                    } else if (error.error && error.error.message) {
+                        this.errorMessage = error.error.message;
+                    } else {
+                        this.errorMessage = 'Error al crear la cuenta. Por favor, intenta nuevamente.';
+                    }
+                }
+            });
+        } else {
+            this.errorMessage = 'Por favor, completa todos los campos requeridos.';
         }
     }
 } 

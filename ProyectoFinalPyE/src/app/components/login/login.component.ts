@@ -200,25 +200,25 @@ export class LoginComponent {
         this.showPassword = !this.showPassword;
     }
 
-    async onSubmit() {
+    onSubmit() {
         this.errorMessage = '';
         
         if (this.email && this.password) {
             console.log('Intentando iniciar sesión...');
             
-            if (this.authService.login(this.email, this.password)) {
-                console.log('Login exitoso, redirigiendo...');
-                try {
-                    await this.router.navigateByUrl('/seleccion-cultivo');
-                    console.log('Redirección completada');
-                } catch (error) {
-                    console.error('Error en la redirección:', error);
-                    this.errorMessage = 'Error al redirigir. Por favor, intenta nuevamente.';
+            this.authService.login({
+                email: this.email,
+                password: this.password
+            }).subscribe({
+                next: (response) => {
+                    console.log('Login exitoso', response);
+                    this.router.navigate(['/dashboard']);
+                },
+                error: (error) => {
+                    console.error('Error en login', error);
+                    this.errorMessage = 'Error al iniciar sesión. Por favor, intenta nuevamente más tarde.';
                 }
-            } else {
-                console.log('Credenciales inválidas');
-                this.errorMessage = 'Credenciales inválidas. Por favor, verifica tus datos.';
-            }
+            });
         } else {
             this.errorMessage = 'Por favor, completa todos los campos.';
         }

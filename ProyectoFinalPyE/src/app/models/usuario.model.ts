@@ -1,9 +1,11 @@
 export interface Usuario {
-    id?: number;
-    nombre: string;
+    id?: string;
     email: string;
-    password: string;
-    tipoAgricultor: 'pequeño' | 'mediano' | 'grande';
+    nombre: string;
+    apellido: string;
+    password?: string;
+    rol?: string;
+    activo?: boolean;
 }
 
 // Implementación de Lista Circular Doble para Usuarios
