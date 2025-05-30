@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="33f6986a-f55a-4e6d-a1ec-8f27f99a5cb6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/backend-systemcultivos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common_http.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common_http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common_http.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_common_http.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_compiler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_compiler.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_compiler.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_core.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_core.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_forms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_forms.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_forms.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_platform-browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_platform-browser.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_platform-browser.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/@angular_router.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-2RWXPSPP.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-2RWXPSPP.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-DMP3RP65.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-DMP3RP65.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-LDYVGB2M.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-LDYVGB2M.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-OO74OAGZ.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-OO74OAGZ.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-OZL665JF.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-OZL665JF.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-P6U2JBMQ.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-P6U2JBMQ.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-P6U2JBMQ.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-P6U2JBMQ.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-WDMUDEB6.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-WDMUDEB6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-WDMUDEB6.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/chunk-WDMUDEB6.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/rxjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/rxjs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/rxjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps/rxjs.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps_ssr/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps_ssr/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps_ssr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/.angular/cache/19.2.11/ProyectoFinalPyE/vite/deps_ssr/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/components/registro/registro.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/components/registro/registro.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/models/usuario.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/models/usuario.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoFinalPyE/src/app/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/systemcultivos/SystemCultivosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/systemcultivos/SystemCultivosApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/systemcultivos/config/MongoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/systemcultivos/config/MongoConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/systemcultivos/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/systemcultivos/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/systemcultivos/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/systemcultivos/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/systemcultivos/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/systemcultivos/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/systemcultivos/repository/usuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/systemcultivos/repository/usuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/systemcultivos/service/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/systemcultivos/service/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/SystemCultivosApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/SystemCultivosApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/config/MongoConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/config/MongoConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/CultivoController$EstadisticasCultivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/CultivoController$EstadisticasCultivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/CultivoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/CultivoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/controller/UsuarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Cultivo$Cosecha.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Cultivo$Cosecha.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Cultivo$Ubicacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Cultivo$Ubicacion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Cultivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Cultivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/model/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/repository/CultivoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/repository/CultivoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/repository/UsuarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/repository/UsuarioRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/CultivoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/CultivoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/CultivoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/CultivoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/UsuarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/UsuarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/systemcultivos/service/UsuarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/systemcultivos-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/systemcultivos-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/systemcultivos-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/systemcultivos-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2xndL0GpNBqyZaak2FboaoLuB5K" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.systemcultivos [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SystemCultivosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend-dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Udenar/ProyectoFinalPyE/ProyectoFinalPyE/backend-systemcultivos&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="SystemCultivosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="systemcultivos" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.systemcultivos.SystemCultivosApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.systemcultivos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.SystemCultivosApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33f6986a-f55a-4e6d-a1ec-8f27f99a5cb6" name="Changes" comment="" />
+      <created>1748577716739</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748577716739</updated>
+      <workItem from="1748577718613" duration="1504000" />
+      <workItem from="1748579418793" duration="776000" />
+      <workItem from="1748580361930" duration="916000" />
+      <workItem from="1748581572893" duration="282000" />
+      <workItem from="1748581953763" duration="1541000" />
+      <workItem from="1748584601101" duration="372000" />
+      <workItem from="1748585524272" duration="444000" />
+      <workItem from="1748586071923" duration="840000" />
+      <workItem from="1748587023723" duration="447000" />
+      <workItem from="1748592755176" duration="213000" />
+      <workItem from="1748593794999" duration="197000" />
+      <workItem from="1748594101471" duration="120000" />
+      <workItem from="1748594553620" duration="504000" />
+      <workItem from="1748626563639" duration="769000" />
+      <workItem from="1748627489519" duration="259000" />
+      <workItem from="1748627906200" duration="598000" />
+      <workItem from="1748630664711" duration="73000" />
+      <workItem from="1748630998585" duration="599000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/systemcultivos/SystemCultivosApplication.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
